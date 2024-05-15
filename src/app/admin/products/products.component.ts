@@ -21,16 +21,11 @@ productsList:ProductT[]=[];
 
   async getProductsAll(){
     await this.productService.getProducts().subscribe(products=>{
-      console.log(products)
       this.productsList= products;
     })
   }
 
-  async getProduct(){
-    await this.productService.getProductsById(50000).subscribe(products=>{
-      console.log(products)
-    })
-  }
+
 
 
 }

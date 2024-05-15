@@ -1,0 +1,58 @@
+
+<div class="w-full h-screen ">
+    <div class="container mx-auto p-8">
+      <div class="mx-auto max-w-sm">
+<form [formGroup]="productForm" class="max-w-xl mx-auto p-6 bg-gray-700 rounded shadow-md">
+    <div class="mb-4">
+      <label for="title" class="block text-sm font-medium text-white">Título</label>
+      <input id="title" type="text" formControlName="title" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+  
+    <div class="mb-4">
+      <label for="handle" class="block text-sm font-medium text-white">Handle</label>
+      <input id="handle" type="text" formControlName="handle" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+  
+    <div class="mb-4">
+      <label for="description" class="block text-sm font-medium text-white">Descripción</label>
+      <textarea id="description" formControlName="description" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+    </div>
+  
+    <div class="mb-4">
+      <label for="sku" class="block text-sm font-medium text-white">SKU</label>
+      <input id="sku" type="text" formControlName="sku" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+  
+    <div class="mb-4">
+      <label for="grams" class="block text-sm font-medium text-white">Gramos</label>
+      <input id="grams" type="number" formControlName="grams" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+  
+    <div class="mb-4">
+      <label for="stock" class="block text-sm font-medium text-white">Stock</label>
+      <input id="stock" type="number" formControlName="stock" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+  
+    <div class="mb-4">
+      <label for="price" class="block text-sm font-medium text-white">Precio</label>
+      <input id="price" type="number" formControlName="price" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+  
+    <div class="mb-4">
+      <label for="compare_price" class="block text-sm font-medium text-white">Precio Comparativo</label>
+      <input id="compare_price" type="number" formControlName="compare_price" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+  
+    <div class="mb-4">
+      <label for="barcode" class="block text-sm font-medium text-white">Código de Barras</label>
+      <input id="barcode" type="text" formControlName="barcode" class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    </div>
+  
+    <button  (click)="onSubmit()" type="submit" class="w-full bg-blue-500 hover:bg-blue-400 text-white py-2 px-4 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      Guardar
+    </button>
+  </form>
+      </div>
+    </div>
+</div>
+  

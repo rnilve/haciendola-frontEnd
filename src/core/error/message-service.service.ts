@@ -9,7 +9,6 @@ export class MessageService {
   message$ = this.messageSource.asObservable();
 
   showMessage(message: string) {
-    console.log("🚀 ~ MessageService ~ showMessage ~ message:", message)
     
     this.messageSource.next(message);
   }

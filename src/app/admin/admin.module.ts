@@ -7,6 +7,7 @@ import { LayoutComponent } from '../layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'src/core/core.module';
+import { ProductsFormComponent } from './products-form/products-form.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { CoreModule } from 'src/core/core.module';
     ProductsComponent,
     LayoutComponent,
     HomeComponent,
+    ProductsFormComponent,
   ],
   imports: [
     AdminRoutingModule,

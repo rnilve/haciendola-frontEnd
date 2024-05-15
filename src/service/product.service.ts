@@ -21,9 +21,24 @@ export class ProductService {
   }
 
   getProductsById(id:number): Observable<ProductT> {
-
-    return this.http.get<ApiFetchResponseT>(`${this.apiUrl}/${'xx'}`).pipe(
+    return this.http.get<ApiFetchResponseT>(`${this.apiUrl}/${id}`).pipe(
       map((response:any) => response.data as ProductT)
+    );
+  }
+
+  createProduct(data: ProductT): Observable<ProductT> {
+    return this.http.post<ApiFetchResponseT>(`${this.apiUrl}`, data).pipe(
+      map(response => {
+        return response.data;
+      })
+    );
+  }
+
+  updateProduct(data: ProductT,id:number): Observable<ProductT> {
+    return this.http.put<ApiFetchResponseT>(`${this.apiUrl}/${id}}`, data).pipe(
+      map(response => {
+        return response.data;
+      })
     );
   }
 }

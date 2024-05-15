@@ -14,7 +14,6 @@ export class ToastComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageService.message$.subscribe(message => {
-      console.log('ads',message)
       this.showToast = true
       this.showMessage(message)
     });

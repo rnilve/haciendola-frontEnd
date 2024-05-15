@@ -1,11 +1,8 @@
-import { ErrorHandler, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './admin/products/products.component';
-import { LayoutComponent } from './layout/layout.component';
-import { HomeComponent } from './admin/home/home.component';
 import { CoreModule } from '../core/core.module';
 import { ProductService } from 'src/service/product.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
