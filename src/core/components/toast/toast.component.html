@@ -1,0 +1,17 @@
+
+
+<div *ngIf="showToast" id="toast-default" class="fixed bottom-4 right-4 z-50 bg-red-500 p-4 text-white rounded-lg shadow-lg">
+    <!-- Contenido del toast aquí -->
+    <div class="flex items-center">
+        <!-- Icono (opcional) -->
+        <div class="w-6 h-6 mr-2">
+            <i class="material-icons text-black">info</i>
+        </div>
+        <!-- Mensaje del toast -->
+        <div class="text-sm font-normal" id="toast-message">{{messageShow}}</div>
+        <!-- Botón de cierre (opcional) -->
+        <button class="ml-4 focus:outline-none">
+            <i class="material-icons text-gray-400 hover:text-gray-900">close</i>
+        </button>
+    </div>
+</div>
