@@ -11,3 +11,16 @@ export type ProductT = {
     barcode?: string;
     rowCount?:number;
 }
+
+
+export type PaginationT = {
+    currentPage: number,
+    pageSize: number,
+    totalCount: number,
+}
+
+
+export type ProductPaginationT = {
+products:ProductT[],
+pagination:PaginationT
+}

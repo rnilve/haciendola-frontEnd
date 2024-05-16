@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ApiFetchResponseT } from 'src/types/responseT';
 import { Observable, map } from 'rxjs';
-import { ProductT } from 'src/types/productT';
+import { ProductPaginationT, ProductT } from 'src/types/productT';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +36,25 @@ export class ProductService {
 
   updateProduct(data: ProductT,id:number): Observable<ProductT> {
     return this.http.put<ApiFetchResponseT>(`${this.apiUrl}/${id}}`, data).pipe(
+      map(response => {
+        return response.data;
+      })
+    );
+  }
+
+  
+  deleteProduct(id:number): Observable<ProductT> {
+    return this.http.delete<ApiFetchResponseT>(`${this.apiUrl}/${id}`).pipe(
+      map((response:any) => response.data as ProductT)
+    );
+  }
+
+  AllProductPagination(numberPage:number,numberSize:number): Observable<ProductPaginationT> {
+    const json = {
+      page:numberPage,
+      size:numberSize
+    }
+    return this.http.post<ApiFetchResponseT>(`${this.apiUrl}/pagination`, json).pipe(
       map(response => {
         return response.data;
       })

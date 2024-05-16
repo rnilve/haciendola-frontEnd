@@ -13,121 +13,144 @@
   </button>
   </div>
   <div>
-    <table class="min-w-full divide-y divide-gray-400">
-      <thead class="bg-slate-200">
-        <tr>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            Acciones
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            Handle
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            Title
-          </th>
-          <!-- <th scope="col" class=" py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Description
-              </th> -->
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            SKU
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            Grams
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            Stock
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            Price
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            Compare Price
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-          >
-            Barcode
-          </th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y divide-gray-200">
-        <tr *ngIf="productsList?.length === 0">
-          <td colspan="9" class="px-6 py-4 text-center text-gray-500 uppercase">
-            No hay información para mostrar
-          </td>
-        </tr>
-        <tr
-          *ngFor="let product of productsList; index as i"
-          class="hover:bg-gray-50"
-        >
-          <td class="px-2 py-4">
-            <div class="flex gap-2 ">
-            <button
-            [routerLink]="['/products', product.id]"
-              class="bg-blue-500 hover:bg-blue-400 p-4 text-sm text-white uppercase font-bold tracking-wider rounded-md"
+    <div class="overflow-auto max-h-96">
+      <table class="min-w-full divide-y divide-gray-400">
+        <thead class="bg-slate-200">
+          <tr>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              <span
-                class="material-icons"
-                placement="bottom"
-                ngbTooltip="Detalle"
-                >edit</span
-              >
-            </button>
+              Acciones
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Handle
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Title
+            </th>
+            <th scope="col" class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Description
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              SKU
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Grams
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Stock
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Price
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Compare Price
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Barcode
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngIf="productsList?.length === 0">
+            <td colspan="9" class="px-6 py-4 text-center text-gray-500 uppercase">
+              No hay información para mostrar
+            </td>
+          </tr>
+          <tr
+            *ngFor="let product of productsList; index as i"
+            class="hover:bg-gray-50"
+          >
+            <td class="px-2 py-4">
+              <div class="flex gap-2">
+                <button
+                  [routerLink]="['/products', product.id]"
+                  class="bg-blue-500 hover:bg-blue-400 p-4 text-sm text-white uppercase font-bold tracking-wider rounded-md"
+                >
+                  <span
+                    class="material-icons"
+                    placement="bottom"
+                    ngbTooltip="Detalle"
+                    >edit</span
+                  >
+                </button>
+    
+                <button
+                  (click)="deleteProduct(product?.id ?? 0)"
+                  class="bg-red-500 hover:bg-red-400 p-4 text-sm text-white uppercase font-bold tracking-wider rounded-md"
+                >
+                  <span
+                    class="material-icons"
+                    placement="bottom"
+                    ngbTooltip="Detalle"
+                    >delete</span
+                  >
+                </button>
+              </div>
+            </td>
+            <td class="px-2 py-4">{{ product?.handle }}</td>
+            <td class="px-2 py-4">{{ product?.title }}</td>
+            <td class="py-4 overflow-hidden line-clamp-3" [innerHTML]="product?.description"></td>
+            <td class="px-2 py-4">{{ product?.sku }}</td>
+            <td class="px-2 py-4">{{ product?.grams }}</td>
+            <td class="px-2 py-4">{{ product?.stock }}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-right">
+              {{ product?.price | currency }}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-right">
+              {{ product?.compare_price | currency }}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-right">
+              {{ product?.barcode }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    
 
-            <button
-            class="bg-red-500 hover:bg-red-400 p-4 text-sm text-white uppercase font-bold tracking-wider rounded-md"
-          >
-            <span
-              class="material-icons"
-              placement="bottom"
-              ngbTooltip="Detalle"
-              >delete</span
-            >
-          </button>
-        </div>
-          </td>
-          <td class="px-2 py-4">{{ product?.handle }}</td>
-          <td class="px-2 py-4">{{ product?.title }}</td>
-          <!-- <td class=" py-4 " [innerHTML]="product?.description"></td> -->
-          <td class="px-2 py-4">{{ product?.sku }}</td>
-          <td class="px-2 py-4">{{ product?.grams }}</td>
-          <td class="px-2 py-4">{{ product?.stock }}</td>
-          <td class="px-6 py-4 whitespace-nowrap text-right">
-            {{ product?.price | currency }}
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap text-right">
-            {{ product?.compare_price | currency }}
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap text-right">
-            {{ product?.barcode }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="flex flex-col items-center">
+  <span class="text-sm text-gray-700">
+    Página <span class="font-semibold text-gray-900">{{ this.page }}</span> de <span class="font-semibold text-gray-900">{{ this.totalPages }}</span> de <span class="font-semibold text-gray-900">{{ this.totalProducts }}</span> Productos
+</span>
+
+  <div class="inline-flex mt-2 xs:mt-0">
+      <button (click)="onPageChange(-1)" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 ">
+          Anterior
+      </button>
+      <button (click)="onPageChange(1)" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 border-0 border-s border-gray-700 rounded-e hover:bg-gray-900 ">
+          Siguiente
+      </button>
   </div>
+</div>
+
+
+</div>
+
 </div>

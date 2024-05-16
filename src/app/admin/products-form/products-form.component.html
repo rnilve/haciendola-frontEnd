@@ -1,7 +1,14 @@
 
 <div class="w-full h-screen ">
+
     <div class="container mx-auto p-8">
       <div class="mx-auto max-w-sm">
+        <div *ngIf="!productId" class="text-gray-700 text-clip text-lg font-semibold m-4">
+          Nuevo Producto
+        </div>
+        <div *ngIf="productId" class="text-gray-700 text-clip text-lg font-semibold m-4">
+          Editar Producto
+        </div>
 <form [formGroup]="productForm" class="max-w-xl mx-auto p-6 bg-gray-700 rounded shadow-md">
     <div class="mb-4">
       <label for="title" class="block text-sm font-medium text-white">Título</label>
