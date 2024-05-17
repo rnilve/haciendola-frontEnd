@@ -5,11 +5,17 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'src/core/core.module';
+import { RegisterComponent } from './register/register.component';
+import { BlankComponent } from './blank/blank.component';
+import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    BlankComponent,
+    RecoveryPasswordComponent
   ],
   imports: [
     CommonModule,

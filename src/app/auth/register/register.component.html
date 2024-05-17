@@ -1,0 +1,216 @@
+<div class="w-full h-screen flex items-center justify-center">
+  <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div
+      class="h-screen lg:flex hidden items-center justify-center flex-col bg-slate-700"
+    >
+      <div
+        class="border-white py-2 font-bold text-white text-center text-xl uppercase"
+      >
+        ¡Ya tienes una cuenta!
+      </div>
+      <div class="py-2 text-gray-200 text-center">
+        Si ya tienes una cuenta, <strong>inicia sesión</strong>
+      </div>
+      <button
+        routerLink="/login"
+        class="border hover:bg-blue-400 mt-8 w-64 p-4 text-sm text-white uppercase font-bold tracking-wider rounded-md"
+      >
+        Iniciar Sesión
+      </button>
+    </div>
+
+    <div class="h-screen font-semibold rounded-l-lg">
+      <div class="h-screen items-center justify-center flex">
+        <div
+          class="border border-slate-400 rounded-md w-full lg:w-1/2 m-2 shadow"
+        >
+          <div
+            class="border-b border-slate-400 py-4 font-bold text-slate-600 text-center text-xl tracking-widest uppercase"
+          >
+            Registro
+          </div>
+          <form [formGroup]="registerForm" class="bg-grey-lightest px-10 py-10">
+            <div class="mb-3 w-full">
+              <div class="flex mb-3 w-full">
+                <div class="w-1/2 mr-2">
+                  <input
+                    type="text"
+                    class="border border-blue-200 p-3 rounded-md w-full"
+                    id="inputName"
+                    aria-describedby="nameHelp"
+                    placeholder="Nombres"
+                    formControlName="name"
+                    autocomplete="off"
+                  />
+                  <small
+                    *ngIf="
+                      registerForm.controls['name'].hasError('required') &&
+                      registerForm.controls['name'].touched
+                    "
+                    class="text-red-600 support-text"
+                  >
+                    Requerido.
+                  </small>
+                </div>
+                <div class="w-1/2 ml-2">
+                  <input
+                    type="text"
+                    class="border border-blue-200 p-3 rounded-md w-full"
+                    id="inputLastName"
+                    placeholder="Apellidos"
+                    formControlName="last_name"
+                  />
+                  <small
+                    *ngIf="
+                      registerForm.controls['last_name'].hasError('required') &&
+                      registerForm.controls['last_name'].touched
+                    "
+                    class="text-red-600 support-text"
+                  >
+                    Requerido.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="w-full mb-3">
+              <input
+                type="text"
+                class="border border-blue-200 p-3 w-full rounded-md"
+                id="inputNickname"
+                aria-describedby="nicknameHelp"
+                placeholder="Usuario"
+                formControlName="nickname"
+                autocomplete="off"
+              />
+              <small
+                *ngIf="
+                  registerForm.controls['nickname'].hasError('required') &&
+                  registerForm.controls['nickname'].touched
+                "
+                class="text-red-600 support-text"
+              >
+                Requerido.
+              </small>
+            </div>
+            <div class="w-full mb-3">
+              <input
+                type="text"
+                class="border border-blue-200 p-3 w-full rounded-md"
+                id="inputCi"
+                placeholder="CI"
+                formControlName="ci"
+              />
+              <small
+                *ngIf="
+                  registerForm.controls['ci'].hasError('required') &&
+                  registerForm.controls['ci'].touched
+                "
+                class="text-red-600 support-text"
+              >
+                Requerido.
+              </small>
+            </div>
+            <div class="w-full mb-3">
+              <input
+                type="text"
+                class="border border-blue-200 p-3 w-full rounded-md"
+                id="inputPhone"
+                placeholder="Teléfono"
+                formControlName="phone"
+              />
+            </div>
+            <div class="w-full mb-3">
+              <input
+                type="text"
+                class="border border-blue-200 p-3 w-full rounded-md"
+                id="inputAddress"
+                placeholder="Dirección"
+                formControlName="address"
+              />
+            </div>
+            <div class="w-full mb-3">
+              <input
+                type="email"
+                class="border border-blue-200 p-3 w-full rounded-md"
+                id="inputEmail"
+                placeholder="Correo electrónico"
+                formControlName="email"
+                autocomplete="off"
+              />
+              <small
+                *ngIf="
+                  registerForm.controls['email'].hasError('required') &&
+                  registerForm.controls['email'].touched
+                "
+                class="text-red-600 support-text"
+              >
+                Requerido.
+              </small>
+              <small
+                *ngIf="
+                  registerForm.controls['email'].hasError('email') &&
+                  registerForm.controls['email'].touched
+                "
+                class="text-red-600 support-text"
+              >
+                Formato de correo inválido.
+              </small>
+            </div>
+            <div class="w-full mb-2">
+              <div class="flex relative">
+                <input
+                  [type]="seePass ? 'text' : 'password'"
+                  class="border w-full border-blue-200 p-3 rounded-md"
+                  id="inputPassword"
+                  placeholder="Contraseña"
+                  formControlName="password"
+                />
+              </div>
+              <small
+                *ngIf="
+                  registerForm.controls['password'].hasError('required') &&
+                  registerForm.controls['password'].touched
+                "
+                class="text-red-600 support-text"
+              >
+                Contraseña requerida.
+              </small>
+            </div>
+
+            <div class="border-t border-slate-400 px-10 py-2">
+              <div class="h6">¿Cúal es el primer nombre de tu mamá?</div>
+              <div class="w-full">
+                <input
+                  type="text"
+                  class="border border-blue-200 p-3 w-full rounded-md uppercase"
+                  id="inputSecurityQuestion"
+                  placeholder="Pregunta de seguridad"
+                  formControlName="security_question"
+                />
+                <small
+                  *ngIf="
+                    registerForm.controls['security_question'].hasError(
+                      'required'
+                    ) && registerForm.controls['security_question'].touched
+                  "
+                  class="text-red-600 support-text"
+                >
+                  Requerida.
+                </small>
+              </div>
+            </div>
+
+            <div class="flex">
+              <button
+                class="bg-blue-500 hover:bg-blue-400 w-full p-4 text-sm text-white uppercase font-bold tracking-wider rounded-md"
+                (click)="Submit()"
+              >
+                Registrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

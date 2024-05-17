@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from 'src/core/guard/auth.guard';
+import { BlankComponent } from './auth/blank/blank.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/login', pathMatch: 'full',
+    path: '', redirectTo: '/home', pathMatch: 'full',
 },
   {
     path: '',
@@ -16,9 +17,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: LoginComponent,
+    component: BlankComponent,
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
+
 
 ];
 

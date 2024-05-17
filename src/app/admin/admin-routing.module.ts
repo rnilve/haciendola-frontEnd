@@ -5,23 +5,26 @@ import { HomeComponent } from './home/home.component';
 import { ProductsFormComponent } from './products-form/products-form.component';
 
 const routes: Routes = [
-
-{
-path: 'products', component: ProductsComponent ,
-},
-{
-  path: 'home', component: HomeComponent ,
+  {
+    path: 'products',
+    component: ProductsComponent,
   },
   {
-    path: 'products/new', component: ProductsFormComponent ,
-    },
-    {
-      path: 'products/:id', component: ProductsFormComponent ,
-      }
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'products/new',
+    component: ProductsFormComponent,
+  },
+  {
+    path: 'products/:id',
+    component: ProductsFormComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

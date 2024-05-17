@@ -6,39 +6,37 @@ import { PaginationT, ProductT } from 'src/types/productT';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
+  productsList: ProductT[] = [];
+  size = 5;
+  page = 1;
+  totalProducts = 0;
 
-productsList:ProductT[]=[];
-size=5;
-page=1;
-totalProducts=0;
-
-
-
-  constructor(private productService:ProductService) {
-   }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.getProductAll(this.page);
   }
 
-  getProductAll(page:number){
-     this.productService.AllProductPagination(page,this.size).subscribe(data=>{
-          this.productsList= data.products;
-          this.size = data.pagination.pageSize;
-          this.totalProducts = data.pagination.totalCount,
-          this.page = data.pagination.currentPage
-      })
+  getProductAll(page: number) {
+    this.productService
+      .AllProductPagination(page, this.size)
+      .subscribe((data) => {
+        this.productsList = data.products;
+        this.size = data.pagination.pageSize;
+        (this.totalProducts = data.pagination.totalCount),
+          (this.page = data.pagination.currentPage);
+      });
   }
 
-  deleteProduct(id:number){
-    this.productService.deleteProduct(id).subscribe(product=>{
-      if(product){
-         this.getProductAll(this.page);
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe((product) => {
+      if (product) {
+        this.getProductAll(this.page);
       }
-    })
+    });
   }
 
   get totalPages(): number {
@@ -46,14 +44,9 @@ totalProducts=0;
   }
 
   onPageChange(page: number): void {
-    const newPage= this.page + page
-    if(newPage > 0 && newPage <= this.totalPages){
+    const newPage = this.page + page;
+    if (newPage > 0 && newPage <= this.totalPages) {
       this.getProductAll(newPage);
     }
-
   }
-
-
-
-
 }

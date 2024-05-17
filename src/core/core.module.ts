@@ -12,7 +12,7 @@ import { ToastComponent } from './components/toast/toast.component';
     CommonModule
   ],
   exports: [
-    ToastComponent // Exporta el componente para que otros módulos puedan usarlo
+    ToastComponent 
   ]
 })
 export class CoreModule { }
